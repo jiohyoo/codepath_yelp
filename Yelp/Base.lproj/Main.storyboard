@@ -117,24 +117,42 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <mapView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RS5-PG-LuI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="JDt-eA-FLM" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="91d-O4-e9B"/>
+                            <constraint firstItem="RS5-PG-LuI" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="B8x-Jk-hK7"/>
+                            <constraint firstItem="JDt-eA-FLM" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="EVX-N7-Omg"/>
                             <constraint firstAttribute="trailing" secondItem="JDt-eA-FLM" secondAttribute="trailing" id="FM5-Ah-7px"/>
+                            <constraint firstAttribute="trailing" secondItem="RS5-PG-LuI" secondAttribute="trailing" id="Ihy-xO-WEv"/>
                             <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="JDt-eA-FLM" secondAttribute="bottom" id="KVy-Og-bIr"/>
+                            <constraint firstAttribute="trailing" secondItem="JDt-eA-FLM" secondAttribute="trailing" id="NZR-GE-qgj"/>
+                            <constraint firstItem="JDt-eA-FLM" firstAttribute="leading" secondItem="XhR-oz-92f" secondAttribute="leading" id="bpe-l3-y6y"/>
+                            <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="JDt-eA-FLM" secondAttribute="bottom" id="gI4-za-DQm"/>
+                            <constraint firstItem="VBY-gq-v8E" firstAttribute="top" secondItem="RS5-PG-LuI" secondAttribute="bottom" id="idI-oG-PPo"/>
                             <constraint firstItem="JDt-eA-FLM" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="lkJ-G9-Gtk"/>
+                            <constraint firstItem="RS5-PG-LuI" firstAttribute="top" secondItem="XhR-oz-92f" secondAttribute="top" id="tZN-4X-KH1"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Yelp" id="tqz-UU-Y9t">
-                        <barButtonItem key="leftBarButtonItem" title="Filters" id="6Q1-j5-1R4">
+                    <navigationItem key="navigationItem" title="Yelp" id="Drg-jj-g6D">
+                        <barButtonItem key="leftBarButtonItem" title="Filters" id="kMZ-iV-9Fn">
                             <connections>
-                                <segue destination="jY4-Vo-bW6" kind="modal" id="t51-km-LT5"/>
+                                <segue destination="jY4-Vo-bW6" kind="modal" id="goD-X4-eQS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="eg1-Ed-K6D" userLabel="Map">
+                            <connections>
+                                <action selector="onviewModeButtonClick:" destination="2xI-yr-O5N" id="CZm-XN-VSL"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="mapView" destination="RS5-PG-LuI" id="dfD-zn-3Jb"/>
                         <outlet property="tableView" destination="JDt-eA-FLM" id="QP7-c7-LE5"/>
+                        <outlet property="viewModeButton" destination="eg1-Ed-K6D" id="FcX-ps-cOO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fgb-4b-F1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -164,18 +182,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-vO-0um">
-                                                    <rect key="frame" x="25" y="15" width="42" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aJz-vO-0um">
+                                                    <rect key="frame" x="10" y="14.5" width="42" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-md-0Sg">
-                                                    <rect key="frame" x="263" y="10" width="51" height="31"/>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZu-md-0Sg">
+                                                    <rect key="frame" x="261" y="9.5" width="51" height="31"/>
                                                 </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="aJz-vO-0um" firstAttribute="centerY" secondItem="ZZu-md-0Sg" secondAttribute="centerY" id="7Ok-Uz-VXr"/>
+                                                <constraint firstItem="aJz-vO-0um" firstAttribute="centerY" secondItem="Qgh-XZ-SOy" secondAttribute="centerY" id="EIl-CS-ROa"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZZu-md-0Sg" secondAttribute="trailing" constant="10" id="ERK-4N-blR"/>
                                                 <constraint firstAttribute="trailing" secondItem="ZZu-md-0Sg" secondAttribute="trailing" constant="10" id="NqZ-bT-hHE"/>
                                                 <constraint firstItem="aJz-vO-0um" firstAttribute="leading" secondItem="Qgh-XZ-SOy" secondAttribute="leading" constant="10" id="fTK-La-Z5W"/>
